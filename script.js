@@ -1,29 +1,13 @@
 // Project data - can be automatically generated from projects directory
 const projects = [
     {
-        id: 'calculator',
-        title: 'Calculator',
-        description: 'A simple calculator web app with basic arithmetic operations.',
+        id: 'drum-kit',
+        title: 'Drum-kit',
+        description: 'A simple website which creates different sounds on key Press.',
         tags: ['JavaScript', 'HTML', 'CSS'],
-        icon: '🔢',
-        link: 'projects/calculator/index.html'
+        icon: '',
+        link: 'projects/drum-kit/index.html'
     },
-    {
-        id: 'todo-app',
-        title: 'To-Do App',
-        description: 'A task management application to track your daily tasks.',
-        tags: ['JavaScript', 'LocalStorage', 'CSS'],
-        icon: '✅',
-        link: 'projects/todo-app/index.html'
-    },
-    {
-        id: 'snake-game',
-        title: 'Snake Game',
-        description: 'Classic snake game built with JavaScript canvas.',
-        tags: ['JavaScript', 'Canvas', 'Game'],
-        icon: '🐍',
-        link: 'projects/snake-game/index.html'
-    }
 ];
 
 // Function to create project card HTML

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Drum</title>
+    <style>
+      .drm {
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 12em;
+        width: 30em;
+        border: 0.2em solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1em;
+      }
+      .drm .letter {
+        color: rgb(0, 0, 0);
+        text-box-edge: 1em ;
+      }
+    </style>
+  </head>
+  <body style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: url(./jema_lh_058_09.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <h1 style="text-align: center; font-size: 5em; font-weight: 900; font-family: Poppins; color: rgb(0, 0, 0);">Drum Kit</h1>
+
+    <div style="display: flex; justify-content: center; align-items: center; width: 90vw; height: 50vh; gap: 1em">
+      <div class="drm" style="background-image: url(crash.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">D</p>
+        <audio class="sound" src="crash.mp3" style="width: 10em; height: 10em"></audio>
+      </div>
+
+      <div class="drm" style="background-image: url(kick.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">F</p>
+        <audio class="sound" src="kick-bass.mp3"></audio>
+      </div>
+
+      <div class="drm" style="background-image: url(snare.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">G</p>
+        <audio class="sound" src="snare.mp3"></audio>
+      </div>
+
+      <div class="drm" style="background-image: url(tom1.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">H</p>
+        <audio class="sound" src="tom-1.mp3"></audio>
+      </div>
+
+      <div class="drm" style="background-image: url(tom2.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">J</p>
+        <audio class="sound" src="tom-2.mp3"></audio>
+      </div>
+
+      <div class="drm" style="background-image: url(tom3.png)">
+        <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">K</p>
+        <audio class="sound" src="tom-3.mp3"></audio>
+      </div>
+    </div>
+    <script>
+      const pads = document.querySelectorAll(".drm");
+
+      pads.forEach((tap) => {
+        tap.addEventListener("click", () => {
+          const audio = tap.querySelector("audio");
+          if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+          }
+        });
+      });
+
+      // Play sound on key press (D, F, G, H, J, K)
+      document.addEventListener("keydown", (e) => {
+        makeSound(e.key);
+      });
+
+      function makeSound(key) {
+        switch (key.toUpperCase()) {
+          case "D": {
+            new Audio("crash.mp3").play();
+            break;
+          }
+          case "F": {
+            new Audio("kick-bass.mp3").play();
+            break;
+          }
+          case "G": {
+            new Audio("snare.mp3").play();
+            break;
+          }
+          case "H": {
+            new Audio("tom-1.mp3").play();
+            break;
+          }
+          case "J": {
+            new Audio("tom-2.mp3").play();
+            break;
+          }
+          case "K": {
+            new Audio("tom-3.mp3").play();
+            break;
+          }
+          default:
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

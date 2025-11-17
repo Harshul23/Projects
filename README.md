@@ -1,142 +1,73 @@
-# My Coding Projects Portfolio 🚀
+# Projects
 
-A simple, clean portfolio website to showcase all my coding projects from my college journey. This portfolio makes it easy to display games, applications, and tools I've built.
+A portfolio website to showcase all my coding projects throughout my college journey.
 
-## 🌟 Features
+## About
 
-- **Simple & Clean Design**: Modern, responsive interface that works on all devices
-- **Easy to Add Projects**: Just upload your project code and update a simple configuration
-- **Example Projects Included**: Calculator, To-Do App, and Snake Game
-- **No Build Step Required**: Pure HTML/CSS/JavaScript - just open in a browser!
+This repository hosts a simple portfolio website that displays my coding projects including games, calculators, to-do apps, and other small projects. The website automatically showcases projects that are uploaded to this repository.
 
-## 🚀 Quick Start
+## Structure
 
-1. **View the Portfolio**: Open `index.html` in your web browser
-2. **Browse Projects**: Click on any project card to view the project
-3. **Add Your Own Projects**: Follow the instructions below
-
-## 📁 Project Structure
+The repository is organized as follows:
 
 ```
 Projects/
 ├── index.html          # Main portfolio page
-├── styles.css          # Portfolio styling
-├── script.js           # Portfolio functionality
-├── projects/           # Directory containing all projects
-│   ├── calculator/
-│   │   └── index.html
-│   ├── todo-app/
-│   │   └── index.html
-│   └── snake-game/
-│       └── index.html
-└── README.md
+├── css/                # Stylesheets
+├── js/                 # JavaScript files
+└── projects/           # Directory containing individual projects
+    ├── project1/
+    │   ├── config.json # Project metadata
+    │   └── ...         # Project files
+    └── project2/
+        ├── config.json
+        └── ...
 ```
 
-## ➕ How to Add a New Project
+## Adding a New Project
 
-Adding a new project is simple! Follow these steps:
+To add a new project to the portfolio:
 
-### Step 1: Create Your Project Folder
+1. Create a new folder in the `projects/` directory with your project name
+2. Add all your project files to this folder
+3. Create a `config.json` file with the following format:
 
-Create a new folder in the `projects/` directory with your project name:
-
-```bash
-mkdir projects/my-new-project
-```
-
-### Step 2: Add Your Project Files
-
-Place your project files in the folder. Your project should have an `index.html` file as the entry point:
-
-```
-projects/my-new-project/
-├── index.html
-├── styles.css (optional)
-├── script.js (optional)
-└── ... (other files)
-```
-
-### Step 3: Update the Portfolio
-
-Open `script.js` and add your project to the `projects` array:
-
-```javascript
+```json
 {
-    id: 'my-new-project',
-    title: 'My New Project',
-    description: 'A brief description of what your project does.',
-    tags: ['JavaScript', 'HTML', 'CSS'],
-    icon: '🎮', // Any emoji
-    link: 'projects/my-new-project/index.html'
+  "title": "Project Name",
+  "description": "Brief description of your project",
+  "screenshot": "screenshot.png",
+  "demoUrl": "https://example.com/demo",
+  "tags": ["tag1", "tag2", "tag3"]
 }
 ```
 
-### Step 4: View Your Portfolio
+4. Push your changes to the repository
 
-Open `index.html` in your browser, and your new project will appear on the homepage!
+The website will automatically detect and display your new project!
 
-## 🎨 Customization
+## Local Development
 
-### Change Colors
+To run the website locally:
 
-Edit the gradient colors in `styles.css`:
+1. Clone this repository
+2. Open `index.html` in your web browser
+3. For local server (recommended):
+   ```bash
+   # Using Python 3 (serves on port 8000)
+   python -m http.server 8000
+   
+   # Or using Node.js (specify port with -p flag)
+   npx serve -p 8000
+   ```
+4. Navigate to `http://localhost:8000` in your browser
 
-```css
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-```
+## Technologies Used
 
-### Update Content
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
 
-- **Header**: Edit the `<header>` section in `index.html`
-- **Intro**: Modify the `.intro` section in `index.html`
-- **Footer**: Update the `<footer>` in `index.html`
+## License
 
-## 📝 Example Projects Included
-
-1. **Calculator** 🔢
-   - Basic arithmetic operations
-   - Keyboard support
-   - Clean, modern interface
-
-2. **To-Do App** ✅
-   - Add, complete, and delete tasks
-   - Filter tasks (All, Active, Completed)
-   - Local storage persistence
-
-3. **Snake Game** 🐍
-   - Classic snake gameplay
-   - Score tracking
-   - High score persistence
-
-## 🌐 Deployment
-
-### GitHub Pages
-
-1. Go to your repository settings
-2. Navigate to "Pages" section
-3. Select the main branch as source
-4. Your portfolio will be live at `https://yourusername.github.io/Projects/`
-
-### Other Hosting
-
-Simply upload all files to any web hosting service. No build step or server required!
-
-## 💡 Tips
-
-- Keep your project folders organized
-- Use descriptive project names
-- Add screenshots or images to make projects more appealing
-- Test each project individually before adding to the portfolio
-- Add a "Back to Projects" link in each project for easy navigation
-
-## 🤝 Contributing
-
-Feel free to customize this portfolio to match your style and add your own projects!
-
-## 📄 License
-
-Free to use and modify for your personal portfolio.
-
----
-
-**Happy Coding! 🎉**
+This project is open source and available for educational purposes.

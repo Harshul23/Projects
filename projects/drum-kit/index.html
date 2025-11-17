@@ -28,38 +28,38 @@
       }
     </style>
   </head>
-  <body style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: url(./jema_lh_058_09.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+  <body style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: url(../../assets/jema_lh_058_09.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
     <h1 style="text-align: center; font-size: 5em; font-weight: 900; font-family: Poppins; color: rgb(0, 0, 0);">Drum Kit</h1>
 
     <div style="display: flex; justify-content: center; align-items: center; width: 90vw; height: 50vh; gap: 1em">
-      <div class="drm" style="background-image: url(crash.png)">
+      <div class="drm" style="background-image: url(../../assets/crash.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">D</p>
-        <audio class="sound" src="crash.mp3" style="width: 10em; height: 10em"></audio>
+        <audio class="sound" src="../../assets/crash.mp3" style="width: 10em; height: 10em"></audio>
       </div>
 
-      <div class="drm" style="background-image: url(kick.png)">
+      <div class="drm" style="background-image: url(../../assets/kick.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">F</p>
-        <audio class="sound" src="kick-bass.mp3"></audio>
+        <audio class="sound" src="../../assets/kick-bass.mp3"></audio>
       </div>
 
-      <div class="drm" style="background-image: url(snare.png)">
+      <div class="drm" style="background-image: url(../../assets/snare.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">G</p>
-        <audio class="sound" src="snare.mp3"></audio>
+        <audio class="sound" src="../../assets/snare.mp3"></audio>
       </div>
 
-      <div class="drm" style="background-image: url(tom1.png)">
+      <div class="drm" style="background-image: url(../../assets/tom1.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">H</p>
-        <audio class="sound" src="tom-1.mp3"></audio>
+        <audio class="sound" src="../../assets/tom-1.mp3"></audio>
       </div>
 
-      <div class="drm" style="background-image: url(tom2.png)">
+      <div class="drm" style="background-image: url(../../assets/tom2.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">J</p>
-        <audio class="sound" src="tom-2.mp3"></audio>
+        <audio class="sound" src="../../assets/tom-2.mp3"></audio>
       </div>
 
-      <div class="drm" style="background-image: url(tom3.png)">
+      <div class="drm" style="background-image: url(../../assets/tom3.png)">
         <p class="letter" style="font-size: 8em; font-weight: 900; font-family: Poppins">K</p>
-        <audio class="sound" src="tom-3.mp3"></audio>
+        <audio class="sound" src="../../assets/tom-3.mp3"></audio>
       </div>
     </div>
     <script>
@@ -83,27 +83,27 @@
       function makeSound(key) {
         switch (key.toUpperCase()) {
           case "D": {
-            new Audio("crash.mp3").play();
+            new Audio("../../assets/crash.mp3").play();
             break;
           }
           case "F": {
-            new Audio("kick-bass.mp3").play();
+            new Audio("../../assets/kick-bass.mp3").play();
             break;
           }
           case "G": {
-            new Audio("snare.mp3").play();
+            new Audio("../../assets/snare.mp3").play();
             break;
           }
           case "H": {
-            new Audio("tom-1.mp3").play();
+            new Audio("../../assets/tom-1.mp3").play();
             break;
           }
           case "J": {
-            new Audio("tom-2.mp3").play();
+            new Audio("../../assets/tom-2.mp3").play();
             break;
           }
           case "K": {
-            new Audio("tom-3.mp3").play();
+            new Audio("../../assets/tom-3.mp3").play();
             break;
           }
           default:

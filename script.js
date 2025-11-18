@@ -13,8 +13,8 @@ const projects = [
         title: 'To-do-list',
         description: 'A To do list app to add and delete tasks',
         tags: ['JavaScript', 'HTML', 'CSS'],
-        icon: '<img src="projects/to-do-list/icon.png" alt="To-do-list">',
-        link: 'projects/to-do-list/index.html'
+        icon: '<img src="projects/To-do-list/icon.png" alt="To-do-list">',
+        link: 'projects/To-do-list/index.html'
     },
 ];
 

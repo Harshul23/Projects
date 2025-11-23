@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Plex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <header>
+      <div class="flex min-w-[100vw] z-10 bg-white h-[3.5em] justify-between items-center px-4 fixed top-0">
+        <div class="flex gap-8 items-center">
+          <div class="bg-black text-white font-black p-1 rounded-[0.5em] w-8 flex justify-center items-center cursor-pointer" onclick="window.location.href='index.html'">P</div>
+          <ul class="navitm flex gap-8">
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li>About</li>
+            <li onclick="window.location.href='contribute.html'">Contribute</li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6 justify-evenly">
+          <div class="min-w-[20em] h-8 bg-neutral-100 text-sm rounded-[0.6em] px-2 flex justify-around items-center gap-1">
+            <input id="projectSearch" type="text" placeholder="Search projects..." class="bg-transparent outline-none flex-1 text-neutral-700 placeholder:text-neutral-700" />
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">⌘</kbd>
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">K</kbd>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub" class="text-neutral-700 hover:text-black text-xl">
+              <i class="bi bi-github text-[0.9em]"></i>
+            </a>
+            <p class="text-neutral-600 text-[0.7em]">100.5 k</p>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+            <button id="themeToggle" type="button" aria-label="Toggle theme" class="w-7 h-7 flex items-center justify-center rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition">
+              <i class="bi bi-sun text-[0.9em]"></i>
+            </button>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="min-h-[60vh] w-[98vw] p-16 mt-20 flex justify-center items-start flex-col">
+      <h1 class="font-semibold text-black text-4xl mb-4">All Projects</h1>
+      <p class="text-neutral-600 mb-8">Browse through our collection of creative projects</p>
+
+      <section class="projects-section w-full max-w-7xl">
+        <ul class="types flex flex-wrap gap-3 list-none mb-8">
+          <li><button class="filter-btn active" data-category="all">All</button></li>
+          <li><button class="filter-btn" data-category="games">Games</button></li>
+          <li><button class="filter-btn" data-category="web-apps">Web Apps</button></li>
+          <li><button class="filter-btn" data-category="tools">Utilities & Tools</button></li>
+          <li><button class="filter-btn" data-category="mobile">Mobile</button></li>
+          <li><button class="filter-btn" data-category="cli">CLI</button></li>
+          <li><button class="filter-btn" data-category="data-science">Data Science</button></li>
+        </ul>
+
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <!-- Projects will be loaded here dynamically -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="flex justify-center h-34 items-end my-8 mt-16">
+      <p class="text-neutral-600">Build by us. Source code is available on Git-Hub</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+      // Filter functionality - runs after projects are loaded
+      function initFilter() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        let projectItems = document.querySelectorAll('.proitm');
+        
+        // Retry if projects haven't loaded yet
+        if (projectItems.length === 0) {
+          setTimeout(initFilter, 100);
+          return;
+        }
+
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            
+            // Update active state
+            filterButtons.forEach(btn => btn.classList.remove('active', 'text-black'));
+            button.classList.add('active', 'text-black');
+
+            // Re-query project items in case they were updated
+            projectItems = document.querySelectorAll('.proitm');
+
+            // Filter projects
+            projectItems.forEach(item => {
+              if (category === 'all' || item.dataset.category === category) {
+                item.style.display = 'flex';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          });
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Wait a bit for projects to load, then init filter
+        setTimeout(initFilter, 200);
+      });
+    </script>
+  </body>
+</html>
+

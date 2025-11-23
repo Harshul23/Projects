@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contribute - Plex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <header>
+      <div class="flex min-w-[100vw] z-10 bg-white h-[3.5em] justify-between items-center px-4 fixed top-0">
+        <div class="flex gap-8 items-center">
+          <div class="bg-black text-white font-black p-1 rounded-[0.5em] w-8 flex justify-center items-center cursor-pointer" onclick="window.location.href='index.html'">P</div>
+          <ul class="navitm flex gap-8">
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li>About</li>
+            <li class="text-black font-semibold">Contribute</li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6 justify-evenly">
+          <div class="min-w-[20em] h-8 bg-neutral-100 text-sm rounded-[0.6em] px-2 flex justify-around items-center gap-1">
+            <input id="projectSearch" type="text" placeholder="Search projects..." class="bg-transparent outline-none flex-1 text-neutral-700 placeholder:text-neutral-700" />
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">⌘</kbd>
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">K</kbd>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub" class="text-neutral-700 hover:text-black text-xl">
+              <i class="bi bi-github text-[0.9em]"></i>
+            </a>
+            <p class="text-neutral-600 text-[0.7em]">100.5 k</p>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+            <button id="themeToggle" type="button" aria-label="Toggle theme" class="w-7 h-7 flex items-center justify-center rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition">
+              <i class="bi bi-sun text-[0.9em]"></i>
+            </button>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="min-h-[60vh] w-[98vw] p-16 mt-20 flex justify-center items-start flex-col max-w-4xl mx-auto">
+      <h1 class="font-semibold text-black text-4xl mb-4">Contribution Guidelines</h1>
+      <p class="text-neutral-600 mb-12">Help us build a collection of amazing projects</p>
+
+      <section class="contribute-content space-y-12">
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">How to Contribute</h2>
+          <p class="text-neutral-700 mb-4">
+            We welcome contributions from developers of all skill levels! Whether you're fixing a bug, adding a new feature, or creating a new project, your contributions help make Plex better.
+          </p>
+          <p class="text-neutral-700">
+            To get started, fork the repository, create a new branch for your changes, and submit a pull request. Make sure to follow our project structure and coding standards.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">Project Structure</h2>
+          <p class="text-neutral-700 mb-4">
+            Each project should be placed in its own folder within the <code class="bg-neutral-100 px-2 py-1 rounded">projects/</code> directory. The structure should follow this pattern:
+          </p>
+          <pre class="bg-neutral-100 p-4 rounded-lg overflow-x-auto text-sm"><code>projects/
+  your-project-name/
+    index.html
+    icon.png (optional)
+    README.md (optional)
+    ...other files</code></pre>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">Submission Guidelines</h2>
+          <ul class="list-disc list-inside space-y-2 text-neutral-700">
+            <li>Ensure your project is fully functional and tested</li>
+            <li>Include a clear description of what your project does</li>
+            <li>Add appropriate tags/categories for your project</li>
+            <li>Make sure all files are properly organized</li>
+            <li>Include an icon or screenshot if possible</li>
+            <li>Write clean, readable, and well-commented code</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">Code Standards</h2>
+          <p class="text-neutral-700 mb-4">We follow these coding standards to maintain consistency:</p>
+          <ul class="list-disc list-inside space-y-2 text-neutral-700">
+            <li>Use semantic HTML5 elements</li>
+            <li>Follow modern CSS best practices (consider using Tailwind CSS if appropriate)</li>
+            <li>Write clean, readable JavaScript with proper error handling</li>
+            <li>Comment complex logic and functions</li>
+            <li>Ensure your code is responsive and works on multiple devices</li>
+            <li>Test your project in multiple browsers</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">Pull Request Process</h2>
+          <ol class="list-decimal list-inside space-y-2 text-neutral-700">
+            <li>Fork the repository and clone it to your local machine</li>
+            <li>Create a new branch: <code class="bg-neutral-100 px-2 py-1 rounded">git checkout -b feature/your-project-name</code></li>
+            <li>Add your project to the <code class="bg-neutral-100 px-2 py-1 rounded">projects/</code> directory</li>
+            <li>Update the <code class="bg-neutral-100 px-2 py-1 rounded">script.js</code> file to include your project in the projects array</li>
+            <li>Commit your changes: <code class="bg-neutral-100 px-2 py-1 rounded">git commit -m "Add: Your project name"</code></li>
+            <li>Push to your fork: <code class="bg-neutral-100 px-2 py-1 rounded">git push origin feature/your-project-name</code></li>
+            <li>Open a Pull Request with a clear description of your project</li>
+          </ol>
+        </div>
+
+        <div>
+          <h2 class="font-semibold text-2xl text-black mb-4">Questions?</h2>
+          <p class="text-neutral-700">
+            If you have any questions or need help, feel free to open an issue on GitHub or reach out to the maintainers. We're here to help!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="flex justify-center h-34 items-end my-8 mt-16">
+      <p class="text-neutral-600">Build by us. Source code is available on Git-Hub</p>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plex</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <header>
+      <div class="flex min-w-[100vw] z-50 bg-white h-[3.5em] justify-between items-center px-4 fixed top-0">
+        <div class="flex gap-8 items-center">
+          <div class="bg-black text-white font-black p-1 rounded-[0.5em] w-8 flex justify-center items-center">P</div>
+          <ul class="navitm flex gap-8">
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li>About</li>
+            <li onclick="window.location.href='contribute.html'" class="cursor-pointer">Contribute</li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6 justify-evenly">
+          <div class="min-w-[20em] h-8 bg-neutral-100 text-sm rounded-[0.6em] px-2 flex justify-around items-center gap-1">
+            <input id="projectSearch" type="text" placeholder="Search projects..." class="bg-transparent outline-none flex-1 text-neutral-700 placeholder:text-neutral-700" />
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">⌘</kbd>
+            <kbd class="px-2 py-[0.4em] m-0 rounded-[0.6em] border border-neutral-300 bg-white text-xs font-medium leading-none">K</kbd>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/harshul23" target="_blank" rel="noopener" aria-label="GitHub" class="text-neutral-700 hover:text-black text-xl">
+              <i class="bi bi-github text-[0.9em]"></i>
+            </a>
+            <p class="text-neutral-600 text-[0.7em]">100.5 k</p>
+          </div>
+          <div class="h-5 border-r-[0.12em] border-neutral-300"></div>
+            <button id="themeToggle" type="button" aria-label="Toggle theme" class="w-7 h-7 flex items-center justify-center rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition">
+              <i class="bi bi-sun text-[0.9em]"></i>
+            </button>
+            </div>
+        </div>
+
+
+      </div>
+    </header>
+
+
+    <main class="min-h-[80vh] w-[98vw] p-16 mt-10 flex justify-center items-center flex-col">
+      <style>
+        @keyframes fadeInSmooth {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        h1.word-fade span {
+          display: inline-block;
+          opacity: 0;
+          animation: fadeInSmooth 0.6s ease-out forwards;
+        }
+      </style>
+      <h1 class="font-semibold text-black text-5xl word-fade">
+        <span style="animation-delay: 0s">Explore</span>
+        <span style="animation-delay: 0.15s">a</span>
+        <span style="animation-delay: 0.3s">Universe</span>
+        <span style="animation-delay: 0.45s">of</span>
+        <span style="animation-delay: 0.6s">Creative</span>
+        <span style="animation-delay: 0.75s">Code</span>
+      </h1>
+      <p class="m-2 text-[1.2em] text-neutral-800">Discover a collection of games, tools, and applications forged in code.</p>
+      <div class="cta flex gap-4 m-4">
+        <button id="browseProjectsBtn" class="cta1">Browse Projects</button>
+        <button id="addYoursBtn" class="cta2">Add Yours</button>
+      </div>
+    </main>
+    
+
+    <!-- Categories Section -->
+    <section class="categories-section py-20 h-[80vh] w-full">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-semibold text-black text-4xl mb-4">Explore by Category</h2>
+          <p class="text-neutral-600 text-lg">Find projects that match your interests</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-controller text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">Games</h3>
+          </div>
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-globe text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">Web Apps</h3>
+          </div>
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-tools text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">Tools</h3>
+          </div>
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-phone text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">Mobile</h3>
+          </div>
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-terminal text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">CLI</h3>
+          </div>
+          <div class="category-card p-6 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-black hover:bg-white transition cursor-pointer text-center" onclick="window.location.href='projects.html'">
+            <i class="bi bi-graph-up text-3xl mb-3 text-neutral-700"></i>
+            <h3 class="font-medium text-sm">Data Science</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     <!-- Features Section -->
+     <section class="features-section w-full h-[80vh] flex justify-center items-center bg-neutral-50">
+      <div class="max-w-6xl bg-white h-full rounded-xl p-8">
+        <div class="text-center mb-16">
+          <h2 class="font-semibold text-black text-4xl mb-4">Why Plex?</h2>
+          <p class="text-neutral-700 text-lg max-w-2xl mx-auto">A curated collection of innovative projects that inspire creativity and learning</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="feature-card p-6 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition">
+            <div class="feature-icon mb-4 w-12 h-12 bg-black rounded-lg flex items-center justify-center">
+              <i class="bi bi-code-slash text-white text-xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Diverse Projects</h3>
+            <p class="text-neutral-600">Explore games, web apps, tools, and more from passionate developers worldwide</p>
+          </div>
+          <div class="feature-card p-6 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition">
+            <div class="feature-icon mb-4 w-12 h-12 bg-black rounded-lg flex items-center justify-center">
+              <i class="bi bi-people text-white text-xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Open Community</h3>
+            <p class="text-neutral-600">Join a growing community of developers sharing knowledge and creativity</p>
+          </div>
+          <div class="feature-card p-6 bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition">
+            <div class="feature-icon mb-4 w-12 h-12 bg-black rounded-lg flex items-center justify-center">
+              <i class="bi bi-lightbulb text-white text-xl"></i>
+            </div>
+            <h3 class="font-semibold text-xl mb-2">Learn & Inspire</h3>
+            <p class="text-neutral-600">Discover new techniques, patterns, and ideas to fuel your next project</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats stats-section py-20 h-[30vh] flex justify-center items-center w-full bg-white text-black">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+          <div class="stat-item">
+            <div class="text-5xl font-bold mb-2" id="projectsCount">50+</div>
+            <p class="text-neutral-600">Projects</p>
+          </div>
+          <div class="stat-item">
+            <div class="text-5xl font-bold mb-2" id="contributorsCount">25+</div>
+            <p class="text-neutral-600">Contributors</p>
+          </div>
+          <div class="stat-item">
+            <div class="text-5xl font-bold mb-2" id="categoriesCount">6</div>
+            <p class="text-neutral-600">Categories</p>
+          </div>
+          <div class="stat-item">
+            <div class="text-5xl font-bold mb-2" id="starsCount">100.5k</div>
+            <p class="text-neutral-600">GitHub Stars</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="projects-section mt-10 w-full flex justify-center relative">
+      <div class="animated-projects-container">
+        <div class="animated-projects-wrapper">
+          <div class="animated-projects-columns" id="animatedProjectsColumns">
+            <!-- Three columns will be created here dynamically -->
+          </div>
+        </div>
+        <div class="animated-projects-fade-top"></div>
+        <div class="animated-projects-fade-bottom"></div>
+      </div>
+    </section>
+
+   
+     <!-- How It Works Section -->
+     <section class="how-it-works-section py-20 w-full bg-neutral-50">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-semibold text-black text-4xl mb-4">How It Works</h2>
+          <p class="text-neutral-600 text-lg">Get started in three simple steps</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="step-card text-center">
+            <div class="step-number w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+            <h3 class="font-semibold text-xl mb-3">Create Your Project</h3>
+            <p class="text-neutral-600">Build something amazing using your favorite technologies</p>
+          </div>
+          <div class="step-card text-center">
+            <div class="step-number w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+            <h3 class="font-semibold text-xl mb-3">Submit to Repository</h3>
+            <p class="text-neutral-600">Follow our contribution guidelines and submit a pull request</p>
+          </div>
+          <div class="step-card text-center">
+            <div class="step-number w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+            <h3 class="font-semibold text-xl mb-3">Share with Community</h3>
+            <p class="text-neutral-600">Your project gets featured and helps inspire others</p>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <button onclick="window.location.href='contribute.html'" class="cta1 px-8 py-3 text-lg rounded-xl">Start Contributing</button>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-section w-full bg-neutral-900 text-white py-16 mt-20">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="footer-col">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="bg-white text-black font-black p-1 rounded-[0.5em] w-8 flex justify-center items-center">P</div>
+              <h3 class="font-bold text-lg">Plex</h3>
+            </div>
+            <p class="text-neutral-400 text-sm mb-4">A curated collection of creative code projects from developers around the world.</p>
+            <div class="flex gap-4">
+              <a href="https://github.com/harshul23" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white transition">
+                <i class="bi bi-github text-xl"></i>
+              </a>
+              <a href="#" class="text-neutral-400 hover:text-white transition">
+                <i class="bi bi-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-neutral-400 hover:text-white transition">
+                <i class="bi bi-linkedin text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="font-semibold mb-4">Navigation</h4>
+            <ul class="space-y-2 text-neutral-400 text-sm">
+              <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+              <li><a href="projects.html" class="hover:text-white transition">Browse Projects</a></li>
+              <li><a href="contribute.html" class="hover:text-white transition">Contribute</a></li>
+              <li><a href="#" class="hover:text-white transition">About</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="font-semibold mb-4">Categories</h4>
+            <ul class="space-y-2 text-neutral-400 text-sm">
+              <li><a href="projects.html" class="hover:text-white transition">Games</a></li>
+              <li><a href="projects.html" class="hover:text-white transition">Web Apps</a></li>
+              <li><a href="projects.html" class="hover:text-white transition">Tools</a></li>
+              <li><a href="projects.html" class="hover:text-white transition">Mobile</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="font-semibold mb-4">Resources</h4>
+            <ul class="space-y-2 text-neutral-400 text-sm">
+              <li><a href="contribute.html" class="hover:text-white transition">Contribution Guide</a></li>
+              <li><a href="https://github.com/harshul23" target="_blank" class="hover:text-white transition">GitHub Repository</a></li>
+              <li><a href="#" class="hover:text-white transition">Documentation</a></li>
+              <li><a href="#" class="hover:text-white transition">Support</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm mb-4 md:mb-0">© 2024 Plex. All rights reserved.</p>
+          <div class="flex gap-6 text-sm text-neutral-400">
+            <a href="#" class="hover:text-white transition">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition">Terms of Service</a>
+            <a href="#" class="hover:text-white transition">License</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal hidden">
+      <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+      <div class="search-modal-dialog">
+        <div class="search-modal-header">
+          <input 
+            type="text" 
+            id="searchModalInput" 
+            placeholder="Search projects..." 
+            class="search-modal-input"
+            autocomplete="off"
+          />
+          <button class="search-modal-close" id="searchModalClose" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="search-modal-results" id="searchModalResults">
+          <!-- Search results will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

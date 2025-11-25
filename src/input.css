@@ -12,20 +12,20 @@
     @apply py-2 px-4 rounded-[0.7em] font-normal
 }
 
-.cta1 {
-    @apply bg-black text-white
-}
-
-.cta1:hover {
+.cta2 {
     @apply bg-[#2a2a2a] text-white
 }
 
-.cta2 {
-    @apply bg-white text-black
+.cta2:hover {
+    @apply bg-[#343434] text-white
 }
 
-.cta2:hover {
-    @apply bg-[#efefef]
+.cta1 {
+    @apply bg-[#ffffff] text-black
+}
+
+.cta1:hover {
+    @apply bg-[#d9d9d9]
 }
 
 .types li button {
@@ -274,6 +274,10 @@
 
 .step-card:hover .step-number {
     @apply scale-110 rotate-6;
+}
+
+.contribtn:hover {
+    @apply bg-[#242424]
 }
 
 /* Footer */

@@ -1,6 +1,6 @@
 // Detect current page context for path resolution
-const isInSrcFolder = window.location.pathname.includes('/src/');
-const pathPrefix = isInSrcFolder ? '../' : '';
+const isInSrcFolder = window.location.pathname.includes("/src/");
+const pathPrefix = isInSrcFolder ? "../" : "";
 
 // Project data - can be automatically generated from projects directory
 const projects = [
@@ -84,14 +84,18 @@ const dummyProjects = [
 
 // Function to create project card HTML
 function createProjectCard(project, isClickable = true) {
-  const clickHandler = isClickable ? `onclick="window.location.href='${project.link}'"` : '';
-  const cursorClass = isClickable ? 'cursor-pointer' : '';
+  const clickHandler = isClickable ? `onclick="window.location.href='${project.link}'"` : "";
+  const cursorClass = isClickable ? "cursor-pointer" : "";
   return `
         <div class="proitm flex flex-col p-4 rounded-xl border border-neutral-200 shadow-sm space-y-2 transition hover:shadow-md ${cursorClass}" 
              data-category="${project.category || (project.tags && project.tags[0] ? project.tags[0].toLowerCase() : "general")}" 
              ${clickHandler}>
             <div class="w-full aspect-video bg-gray-200 rounded-xl flex items-center justify-center text-sm text-neutral-600 overflow-hidden">
-                ${project.image ? `<img src="${project.image}" alt="${project.title}" class="object-cover w-full h-full rounded-xl">` : (project.icon || `<div class="text-center">${project.title}</div>`)}
+                ${
+                  project.image
+                    ? `<img src="${project.image}" alt="${project.title}" class="object-cover w-full h-full rounded-xl">`
+                    : project.icon || `<div class="text-center">${project.title}</div>`
+                }
             </div>
             <h2 class="text-base font-semibold">${project.title}</h2>
             <p class="text-sm text-neutral-700">${project.description}</p>
@@ -105,7 +109,7 @@ function createProjectCard(project, isClickable = true) {
 // Function to create animated project card (simpler version for animation)
 function createAnimatedProjectCard(project) {
   return `
-    <div class="animated-project-card proitm flex flex-col p-4 rounded-xl border border-neutral-200 shadow-sm space-y-2" data-category="${project.category || 'games'}">
+    <div class="animated-project-card proitm flex flex-col p-4 rounded-xl border border-neutral-200 shadow-sm space-y-2" data-category="${project.category || "games"}">
       <div class="w-full aspect-video bg-gray-200 rounded-xl flex items-center justify-center text-sm text-neutral-600">
         <div class="text-center">${project.title}</div>
       </div>
@@ -143,10 +147,10 @@ function loadAnimatedProjects() {
 
   // Distribute projects across 3 columns
   const columns = [[], [], []];
-  
+
   // Create enough projects for smooth infinite scrolling (duplicate multiple times)
   const allProjects = [...dummyProjects, ...dummyProjects, ...dummyProjects, ...dummyProjects];
-  
+
   // Distribute projects across columns (stagger them)
   allProjects.forEach((project, index) => {
     const columnIndex = index % 3;
@@ -154,17 +158,19 @@ function loadAnimatedProjects() {
   });
 
   // Create HTML for 3 columns
-  columnsContainer.innerHTML = columns.map((columnProjects, colIndex) => {
-    // Duplicate the column content for seamless loop
-    const duplicatedProjects = [...columnProjects, ...columnProjects];
-    return `
+  columnsContainer.innerHTML = columns
+    .map((columnProjects, colIndex) => {
+      // Duplicate the column content for seamless loop
+      const duplicatedProjects = [...columnProjects, ...columnProjects];
+      return `
       <div class="animated-projects-column">
         <div class="animated-projects-column-track">
           ${duplicatedProjects.map((project) => createAnimatedProjectCard(project)).join("")}
         </div>
       </div>
     `;
-  }).join("");
+    })
+    .join("");
 }
 
 // Search Modal Functionality
@@ -246,10 +252,7 @@ function loadAnimatedProjects() {
 
     const lowerQuery = query.toLowerCase();
     const filtered = projects.filter(
-      (project) =>
-        project.title.toLowerCase().includes(lowerQuery) ||
-        project.description.toLowerCase().includes(lowerQuery) ||
-        project.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
+      (project) => project.title.toLowerCase().includes(lowerQuery) || project.description.toLowerCase().includes(lowerQuery) || project.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
     );
 
     renderResults(filtered);
@@ -351,3 +354,45 @@ document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
   loadAnimatedProjects();
 });
+
+let ticking = false;
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const hero = document.querySelector(".hero");
+        const main = document.querySelector(".hero-main");
+        if (!hero || !main) {
+          ticking = false;
+          return;
+        }
+
+        const scrollY = window.scrollY;
+        // Use a fixed scroll distance to complete the animation (e.g., 60% of viewport height)
+        // This avoids circular dependencies where changing element size affects scroll progress
+        const scrollDistance = window.innerHeight * 0.2;
+
+        let scrollProgress = scrollY / scrollDistance;
+        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+
+        // Interpolate values based on scroll progress
+        // Smooth easing (easeOutCubic)
+        const eased = 1 - Math.pow(1 - scrollProgress, 3);
+        const width = 70 + 30 * eased;      // 70vw -> 100vw
+        const height = 80 + 0 * eased;     // 80vh -> 100vh
+        const borderRadius = 2 - eased;     // 1rem -> 0rem
+
+        // Apply styles directly
+        main.style.minWidth = `${width}vw`;
+        main.style.minHeight = `${height}vh`;
+        main.style.borderRadius = `${borderRadius}rem`;
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  },
+  { passive: true }
+);
